@@ -1,3 +1,4 @@
+
 $theme-colors: (
   "primary": #407BFF
 );
@@ -6,3 +7,4 @@ $body-bg: #E5E5E5;
 $body-color:  #263238;
 
 @import '~bootstrap/scss/bootstrap.scss';
+@import './include-media.scss';
