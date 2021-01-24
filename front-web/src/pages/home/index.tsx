@@ -13,7 +13,7 @@ const Home = () => (
         <p className="text-subtitle">
           We'll help you to find the best <br /> products available on the market.
         </p>
-        <Link to="/catalog">
+        <Link to="/products">
           <ButtonIcon text="Begin your search now" />
         </Link>
       </div>
