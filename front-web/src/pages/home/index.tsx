@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Home = () => (
 
   <div className="home-container">
-    <div className="home-content row">
+    <div className="home-content row card-base border-radius-20">
       <div className="col-6">
         <h1 className="text-title">Know the best <br /> product catalog</h1>
         <p className="text-subtitle">
