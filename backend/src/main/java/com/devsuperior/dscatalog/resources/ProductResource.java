@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
@@ -36,29 +37,29 @@ public class ProductResource {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
-        ProductDTO catDTO = productService.findById(id);
-        return ResponseEntity.ok().body(catDTO);
+        ProductDTO dto = productService.findById(id);
+        return ResponseEntity.ok().body(dto);
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO catDTO) {
+    public ResponseEntity<ProductDTO> insert(@Valid @RequestBody ProductDTO dto) {
 
-        catDTO = productService.insert(catDTO);
+        dto = productService.insert(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                                         .path("/{id}")
-                                        .buildAndExpand(catDTO.getId())
+                                        .buildAndExpand(dto.getId())
                                         .toUri();
 
-        return ResponseEntity.created(uri).body(catDTO);
+        return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO catDTO) {
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @Valid @RequestBody ProductDTO dto) {
 
-        catDTO = productService.update(id, catDTO);
+        dto = productService.update(id, dto);
 
-        return ResponseEntity.ok().body(catDTO);
+        return ResponseEntity.ok().body(dto);
     }
 
     @DeleteMapping("/{id}")

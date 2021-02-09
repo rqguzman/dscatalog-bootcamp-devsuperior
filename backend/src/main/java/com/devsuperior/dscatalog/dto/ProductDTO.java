@@ -5,6 +5,10 @@ import com.devsuperior.dscatalog.entities.Product;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -18,14 +22,19 @@ public class ProductDTO implements Serializable {
 
     private Long id;
 
+    @Size(min = 3, max = 60, message = "Name size must be between 3 and 60 characters")
+    @NotBlank(message = "Name is mandatory!")
     private String name;
 
+    @NotBlank(message = "Description is mandatory!")
     private String description;
 
+    @Positive(message = "Price must be a positive value")
     private Double price;
 
     private String imgUrl;
 
+    @PastOrPresent(message = "Product's date cannot lie in the future. Please revise.")
     private Instant date;
 
     private List<CategoryDTO> categories = new ArrayList<>();
