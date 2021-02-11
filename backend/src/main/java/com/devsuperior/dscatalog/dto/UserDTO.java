@@ -1,6 +1,7 @@
 package com.devsuperior.dscatalog.dto;
 
 import com.devsuperior.dscatalog.entities.User;
+import com.devsuperior.dscatalog.services.validation.UserInsertValid;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
