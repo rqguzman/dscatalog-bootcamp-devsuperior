@@ -34,7 +34,7 @@ build/
 
 ### .properties files ###
 application-dev.properties
-application-prod.properties
+#application-prod.properties
 
 ### IMAGES ###
 # JPEG
