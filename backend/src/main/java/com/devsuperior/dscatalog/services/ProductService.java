@@ -29,10 +29,10 @@ public class ProductService {
     private CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAllPaged(Long categoryId, PageRequest pageRequest) {
+    public Page<ProductDTO> findAllPaged(Long categoryId, String name, PageRequest pageRequest) {
 
         Category category = (categoryId == 0)  ? null : categoryRepository.getOne(categoryId);
-        Page<Product> list = productRepository.find(category, pageRequest);
+        Page<Product> list = productRepository.find(category, name, pageRequest);
 
         return list.map(p -> new ProductDTO(p));
     }
