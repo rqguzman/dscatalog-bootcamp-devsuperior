@@ -1,5 +1,7 @@
 package com.devsuperior.dscatalog.resources.exceptions;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
 import com.devsuperior.dscatalog.services.exceptions.MyDatabaseIntegrityException;
 import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -22,7 +24,7 @@ public class ResourceExceptionHandler {
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
         err.setStatus(status.value());
-        err.setError(">>> [Application] Resource not found");
+        err.setError("[Application] >>> Resource not found");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
 
@@ -36,7 +38,7 @@ public class ResourceExceptionHandler {
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
         err.setStatus(status.value());
-        err.setError(">>> [Application] Database integrity exception");
+        err.setError("[Application] >>> Database integrity exception");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
 
@@ -50,7 +52,7 @@ public class ResourceExceptionHandler {
         ValidationError err = new ValidationError();
         err.setTimestamp(Instant.now());
         err.setStatus(status.value());
-        err.setError(">>> [Application] Data validation exception");
+        err.setError("[Application] >>> Data validation exception");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
 
@@ -60,4 +62,47 @@ public class ResourceExceptionHandler {
 
         return ResponseEntity.status(status).body(err);
     }
+
+    @ExceptionHandler(AmazonServiceException.class)
+    public ResponseEntity<StandardError> amazonService(AmazonServiceException e, HttpServletRequest request){
+
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError err = new StandardError();
+        err.setTimestamp(Instant.now());
+        err.setStatus(status.value());
+        err.setError("[APPLICATION] >>> AmazonServiceException");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(AmazonClientException.class)
+    public ResponseEntity<StandardError> amazonClient(AmazonClientException e, HttpServletRequest request){
+
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError err = new StandardError();
+        err.setTimestamp(Instant.now());
+        err.setStatus(status.value());
+        err.setError("[APPLICATION] >>> AmazonClientException");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<StandardError> illegalArgument(IllegalArgumentException e, HttpServletRequest request){
+
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError err = new StandardError();
+        err.setTimestamp(Instant.now());
+        err.setStatus(status.value());
+        err.setError("[APPLICATION] >>> Bad request");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+
+        return ResponseEntity.status(status).body(err);
+    }
+
 }
