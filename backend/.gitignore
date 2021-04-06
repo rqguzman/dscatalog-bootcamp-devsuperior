@@ -47,6 +47,3 @@ application-dev.properties
 ### Others ###
 .DS_Store
 .metadata
-.mvn
-
-mvnw.cmd
