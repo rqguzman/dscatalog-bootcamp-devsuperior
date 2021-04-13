@@ -1,3 +1,38 @@
 .login-form {
-    margin-top: 80px;
+  margin-top: 80px;
+}
+
+.login-link-recover {
+  display: block;
+  margin-top: 15px;
+  color: #407bff;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+}
+
+.login-link-register {
+  margin-left: 10px;
+  color: #407bff;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  text-decoration-line: underline;
+}
+
+.login-submit {
+  margin-top: 100px;
+  margin-bottom: 35px;
+}
+
+.not-registered {
+  margin-top: 15px;
+  color: #9E9E9E;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: -0.015em;
 }
