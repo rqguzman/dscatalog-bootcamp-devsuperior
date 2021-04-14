@@ -1,17 +1,16 @@
 # DSCatalog
 
 <p>
-	Application developed during DevSuperior Bootcamp.
+	Application developed during DevSuperior Bootcamp.<br/>
 	Status: :construction: Work in progress.
 </p>
 
 ### Technologies
 <p>
 	<img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/languages/java.svg" alt="Java" style="vertical-align:top margin:6px 4px">
-   <img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/languages/js.svg" alt="JavaScript" style="vertical-align:top margin:6px 4px">
-   <img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/languages/typescript.svg" alt="TypeScript" style="vertical-align:top margin:6px 4px">
-   <img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/frameworks/spring.svg" alt="Spring" style="vertical-align:top margin:6px 4px">
-  <img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/frameworks/react.svg" alt="React" style="vertical-align:top margin:6px 4px">
+   	<img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/languages/typescript.svg" alt="TypeScript" style="vertical-align:top margin:6px 4px">
+   	<img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/frameworks/spring.svg" alt="Spring" style="vertical-align:top margin:6px 4px">
+  	<img src="https://github.com/rqguzman/assets/blob/main/ColoredBadges/svg/dev/frameworks/react.svg" alt="React" style="vertical-align:top margin:6px 4px">
 </p>
 
 ### Build with
