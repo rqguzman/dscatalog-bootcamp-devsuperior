@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ButtonIcon from 'core/components/ButtonIcon';
 import AuthCard from '../card';
 import './styles.scss';
+import { makeLogin } from 'core/utils/request';
 
 type FormData = {
-    email: string;
+    username: string;
     password: string;
 }
 
@@ -14,25 +15,41 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm<FormData>();
 
+    const [hasError, setHasError] = useState(false);
+
     const onSubmit = (data: FormData) => {
-        console.log(data);   
+        console.log(data); 
+        makeLogin(data)
+            .then(response => {
+                setHasError(false);
+            })
+            .catch(() => {
+                setHasError(true);
+            })
     }
 
     return (
         <div>
             <AuthCard title="login">
+                {hasError && (
+                    <div className="alert alert-danger mt-5">
+                        Invalid user or password!
+                    </div>
+                )}
                 <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
                     <input 
                         type="email"
                         className="form-control input-base margin-bottom-30"
                         placeholder="email"
-                        {...register('email')}
+                        autoComplete="off"
+                        {...register('username', {required: true})}
                     />
                     <input 
                         type="password"
                         className="form-control input-base"
                         placeholder="password"
-                        {...register('password')}
+                        autoComplete="off"
+                        {...register('password', {required: true})}
                     />
                     <Link to="/admin/auth/recover" className="login-link-recover">
                         Forgotten your login details?
